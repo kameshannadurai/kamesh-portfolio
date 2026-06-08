@@ -1,0 +1,35 @@
+# Dependency directories
+node_modules/
+/frontend/node_modules/
+/backend/node_modules/
+
+# Build outputs
+/frontend/dist/
+dist/
+
+# Local configuration / env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Local fallback database file
+backend/data/db_fallback.json
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.logs/
+*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
