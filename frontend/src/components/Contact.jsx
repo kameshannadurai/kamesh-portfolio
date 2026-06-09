@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Send, Check, Mail, MapPin, Sparkles, AlertCircle } from 'lucide-react';
+import { Send, Check, Mail, MapPin, Sparkles, AlertCircle, FileText } from 'lucide-react';
 
 const Contact = () => {
+  const cvUrl = '/Kamesh_Annadurai_CV.pdf';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -100,8 +101,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Email Me</div>
-                  <a href="mailto:kamesh@example.com" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 500 }} onMouseOver={(e)=>e.target.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.target.style.color='var(--text-primary)'}>
-                    kamesh@example.com
+                  <a href="annaduraitst@gmail.com" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 500 }} onMouseOver={(e)=>e.target.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.target.style.color='var(--text-primary)'}>
+                   annaduraitst@gmail.com
                   </a>
                 </div>
               </div>
@@ -122,7 +123,35 @@ const Contact = () => {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Location</div>
-                  <div style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Bangalore, India</div>
+                  <div style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Chennai,Tamil nadu, India</div>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '12px',
+                  background: 'rgba(0, 240, 255, 0.05)',
+                  border: '1px solid rgba(0, 240, 255, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--accent-cyan)'
+                }}>
+                  <FileText size={18} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Resume</div>
+                  <a
+                    href={cvUrl}
+                    download="Kamesh_Annadurai_CV.pdf"
+                    style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 500 }}
+                    onMouseOver={(e)=>e.target.style.color='var(--accent-cyan)'}
+                    onMouseOut={(e)=>e.target.style.color='var(--text-primary)'}
+                  >
+                    Download CV
+                  </a>
                 </div>
               </div>
             </div>

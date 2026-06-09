@@ -204,20 +204,7 @@ const AdminLogin = () => {
           </button>
         </form>
 
-        {/* Note info */}
-        <div style={{
-          textAlign: 'center',
-          marginTop: '1.5rem',
-          fontSize: '0.8rem',
-          color: 'var(--text-muted)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '0.25rem'
-        }}>
-          <Terminal size={12} />
-          <span>Default: admin / admin123</span>
-        </div>
+
 
       </div>
 

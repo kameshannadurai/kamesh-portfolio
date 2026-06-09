@@ -9,7 +9,17 @@ const SkillSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Frontend', 'Backend', 'Database', 'DevOps', 'Mobile', 'Other']
+    enum: [
+      'Frontend',
+      'Backend',
+      'Database',
+      'DevOps',
+      'Mobile',
+      'Other',
+      'ORM Framework',
+      'Backend Framework(Java)',
+      'Backend Framework(Python)'
+    ]
   },
   percentage: {
     type: Number,

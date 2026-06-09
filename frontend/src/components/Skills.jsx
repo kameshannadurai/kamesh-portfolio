@@ -39,7 +39,17 @@ const Skills = () => {
   };
 
   // Group skills by category
-  const categories = ['Frontend', 'Backend', 'Database', 'DevOps', 'Mobile', 'Other'];
+  const categories = [
+    'Frontend',
+    'Backend',
+    'Database',
+    'DevOps',
+    'Mobile',
+    'Other',
+    'ORM Framework',
+    'Backend Framework(Java)',
+    'Backend Framework(Python)'
+  ];
   const groupedSkills = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) acc[skill.category] = [];
     acc[skill.category].push(skill);

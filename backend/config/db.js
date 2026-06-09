@@ -63,12 +63,13 @@ const defaultData = {
     }
   ],
   skills: [
-    { _id: "s1", name: "JavaScript / TypeScript", category: "Frontend", percentage: 90 },
+    { _id: "s1", name: "Java", category: "Frontend", percentage: 90 },
     { _id: "s2", name: "React.js", category: "Frontend", percentage: 85 },
-    { _id: "s3", name: "HTML5 & CSS3", category: "Frontend", percentage: 95 },
-    { _id: "s4", name: "Node.js / Express.js", category: "Backend", percentage: 80 },
-    { _id: "s5", name: "MongoDB & SQL", category: "Database", percentage: 75 },
-    { _id: "s6", name: "RESTful APIs & Integration", category: "Backend", percentage: 85 }
+    { _id: "s3", name: "HTML , CSS , JS", category: "Frontend", percentage: 95 },
+    { _id: "s4", name: "java , python ", category: "Backend", percentage: 80 },
+    { _id: "s5", name: "Oracle databasse & MySql", category: "Database", percentage: 75 },
+    { _id: "s6", name: "RESTful APIs & Integration", category: "Backend", percentage: 85 },
+  
   ],
   messages: []
 };

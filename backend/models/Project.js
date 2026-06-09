@@ -13,7 +13,7 @@ const ProjectSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Frontend', 'Backend', 'Fullstack', 'Mobile', 'Other']
+    enum: ['Frontend', 'Backend', 'Fullstack', 'Database', 'Other']
   },
   tags: {
     type: [String],

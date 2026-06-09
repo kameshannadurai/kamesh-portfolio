@@ -16,7 +16,7 @@ router.post('/login', async (req, res) => {
   }
 
   // Single admin login setup. Username can be 'admin' or anything.
-  const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'admin2412';
   
   try {
     let isMatch = false;

@@ -414,7 +414,7 @@ const AdminDashboard = () => {
                     <option value="Frontend">Frontend</option>
                     <option value="Backend">Backend</option>
                     <option value="Fullstack">Fullstack</option>
-                    <option value="Mobile">Mobile</option>
+                    <option value="Database">Database</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -617,7 +617,9 @@ const AdminDashboard = () => {
                     <option value="Database">Database</option>
                     <option value="DevOps">DevOps</option>
                     <option value="Mobile">Mobile</option>
-                    <option value="Other">Other</option>
+                    <option value="ORM Framework">ORM Framework</option>
+                    <option value="Backend Framework(Java)">Backend Framework(Java)</option>
+                    <option value="Backend Framework(Python)">Backend Framework(Python)</option>
                   </select>
                 </div>
 

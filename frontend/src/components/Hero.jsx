@@ -4,10 +4,11 @@ import ParticleBackground from './ParticleBackground.jsx';
 
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
-  const words = ['Full-Stack Developer', 'React Specialist', 'Backend Architect', 'Creative Problem Solver'];
+  const words = ['Full-Stack Developer', 'Database specialist', 'Backend Architect', ''];
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
+  const cvUrl = '/Kamesh_Annadurai_CV.pdf';
 
   useEffect(() => {
     const currentWord = words[wordIndex];
@@ -17,12 +18,12 @@ const Hero = () => {
       // Deleting letters
       timer = setTimeout(() => {
         setTypedText(currentWord.substring(0, typedText.length - 1));
-      }, 50);
+      }, 60);
     } else {
       // Typing letters
       timer = setTimeout(() => {
         setTypedText(currentWord.substring(0, typedText.length + 1));
-      }, 100);
+      }, 80);
     }
 
     // Adjust typing speed based on state
@@ -126,7 +127,7 @@ const Hero = () => {
             maxWidth: '600px',
             margin: '0 auto 2.5rem auto'
           }}>
-            I craft clean, premium full-stack web applications with high-fidelity animations, robust backends, and responsive frontend architecture.
+            
           </p>
 
           {/* Call to Action Buttons */}
@@ -151,19 +152,19 @@ const Hero = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '1.5rem'
+            gap: '2rem'
           }}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-fast)' }} onMouseOver={(e)=>e.currentTarget.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.currentTarget.style.color='var(--text-secondary)'}>
-              <Github size={22} />
+            <a href="https://github.com/kameshannadurai" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-fast)' }} onMouseOver={(e)=>e.currentTarget.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.currentTarget.style.color='var(--text-secondary)'}>
+              <Github size={30} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-fast)' }} onMouseOver={(e)=>e.currentTarget.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.currentTarget.style.color='var(--text-secondary)'}>
-              <Linkedin size={22} />
+            <a href="https://www.linkedin.com/in/kamesh-annadurai-854678323/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-fast)' }} onMouseOver={(e)=>e.currentTarget.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.currentTarget.style.color='var(--text-secondary)'}>
+              <Linkedin size={30} />
             </a>
-            <a href="mailto:contact@example.com" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-fast)' }} onMouseOver={(e)=>e.currentTarget.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.currentTarget.style.color='var(--text-secondary)'}>
-              <Mail size={22} />
+            <a href="https://annaduraitst@gmail.com" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-fast)' }} onMouseOver={(e)=>e.currentTarget.style.color='var(--accent-cyan)'} onMouseOut={(e)=>e.currentTarget.style.color='var(--text-secondary)'}>
+              <Mail size={30} />
             </a>
             <span style={{ width: '1px', height: '20px', backgroundColor: 'rgba(255,255,255,0.1)' }}></span>
-            <a href="#" style={{ 
+            <a href={cvUrl} download="Kamesh_Annadurai_CV.pdf" style={{
               color: 'var(--accent-cyan)', 
               textDecoration: 'none', 
               fontSize: '0.95rem',
@@ -175,9 +176,8 @@ const Hero = () => {
             }} 
             onMouseOver={(e)=>e.currentTarget.style.textShadow='0 0 8px var(--accent-cyan-glow)'} 
             onMouseOut={(e)=>e.currentTarget.style.textShadow='none'}
-            onClick={(e) => { e.preventDefault(); alert("CV Download placeholder - add resume.pdf to public folder to link."); }}
             >
-              <FileText size={18} />
+              <FileText size={22} />
               <span>Download CV</span>
             </a>
           </div>
@@ -189,7 +189,7 @@ const Hero = () => {
           onClick={() => handleScroll('skills')}
           style={{
             position: 'absolute',
-            bottom: '-2rem',
+            bottom: '-6rem',
             left: '50%',
             transform: 'translateX(-50%)',
             cursor: 'pointer',
@@ -197,11 +197,11 @@ const Hero = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '0.25rem',
+            gap: '.2rem',
             animation: 'bounce 2s infinite'
           }}
         >
-          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Scroll</span>
+          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Scroll down</span>
           <ChevronDown size={16} />
         </div>
       </div>
