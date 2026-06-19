@@ -292,7 +292,7 @@ const AdminDashboard = () => {
             <div style={{ fontSize: '0.85rem' }}>
               <span style={{ color: 'var(--text-muted)' }}>Status: </span>
               <span style={{ fontWeight: 600, color: serverStatus.fallbackMode ? 'var(--accent-cyan)' : '#4ade80' }}>
-                {serverStatus.fallbackMode ? '⚠️ Fallback (JSON)' : '🟢 Connected (MongoDB)'}
+                {serverStatus.fallbackMode ? 'Local SQLite' : 'Connected MongoDB'}
               </span>
             </div>
             <button onClick={loadDashboardData} style={{

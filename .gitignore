@@ -14,8 +14,9 @@ dist/
 .env.test.local
 .env.production.local
 
-# Local fallback database file
-backend/data/db_fallback.json
+# Local SQLite database files
+backend/data/*.sqlite
+backend/data/*.sqlite-*
 
 # Log files
 npm-debug.log*

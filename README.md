@@ -14,7 +14,7 @@ A modern, high-end, responsive personal portfolio website built with a **React (
   - Add, edit, or delete projects (CRUD).
   - Add, edit, or delete skills (CRUD).
   - View all contact form inquiries and toggle read status.
-- **Smart Database Fallback Layer:** Connects to MongoDB if configured, but automatically boots in **Fallback Mode** (using a local persistent JSON database: `backend/data/db_fallback.json`) if MongoDB is unavailable, meaning the application runs **out-of-the-box** without any configuration!
+- **Smart Database Layer:** Connects to MongoDB if configured, but automatically uses a local persistent SQLite database (`backend/data/portfolio.sqlite`) if MongoDB is unavailable, meaning the application runs **out-of-the-box** without any configuration.
 
 ---
 
@@ -22,7 +22,7 @@ A modern, high-end, responsive personal portfolio website built with a **React (
 
 - **Frontend:** React.js, React Router DOM, Vite, Lucide Icons, Custom CSS Modules.
 - **Backend:** Express.js, Node.js, JWT, BcryptJS.
-- **Database:** MongoDB (using Mongoose ODM) with automatic local JSON database fallback.
+- **Database:** MongoDB (using Mongoose ODM) with automatic local SQLite storage.
 
 ---
 
@@ -58,8 +58,8 @@ To access the Admin dashboard:
 
 ```
 ├── backend/
-│   ├── config/db.js          # Handles MongoDB connection and fallback layer
-│   ├── data/                 # Folder storing fallback JSON DB files
+│   ├── config/db.js          # Handles MongoDB connection and local SQLite storage
+│   ├── data/                 # Folder storing local SQLite DB files
 │   ├── middleware/           # authMiddleware verifying admin JWT
 │   ├── models/               # Project, Skill, and Message Mongoose schemas
 │   ├── routes/               # API Router endpoints
@@ -90,7 +90,7 @@ Configure the following variables in the root `.env` file to customize the serve
 PORT=5000
 NODE_ENV=development
 
-# Database configuration: Leave blank to use Fallback JSON DB
+# Database configuration: Leave blank to use local SQLite DB
 MONGODB_URI=
 
 # Authentication security
