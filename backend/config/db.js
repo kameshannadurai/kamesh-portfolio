@@ -9,7 +9,6 @@ import '../models/Skill.js';
 import '../models/Message.js';
 
 const __filename = fileURLToPath(import.meta.url);
-
 const __dirname = path.dirname(__filename);
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
@@ -22,55 +21,10 @@ if (!fs.existsSync(DATA_DIR)) {
 
 let isFallbackMode = false;
 
-// Default initial data for fallback JSON database
+// Empty initial data for fallback JSON database
 const defaultData = {
-  projects: [
-    {
-      _id: "p1",
-      title: "NeonSpace Portfolio",
-      description: "A gorgeous, high-performance portfolio template with dynamic background canvas particles, rich details modal, and a fully-functional secure admin dashboard to control items in real-time.",
-      category: "Fullstack",
-      tags: ["React", "Express", "Node.js", "MongoDB", "CSS Glassmorphism"],
-      imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&auto=format&fit=crop&q=80",
-      githubUrl: "https://github.com",
-      liveUrl: "https://google.com",
-      featured: true,
-      createdAt: new Date().toISOString()
-    },
-    {
-      _id: "p2",
-      title: "FinTech Dashboard",
-      description: "An analytics dashboard featuring live mock market data, custom charts, budgeting tools, and secure transactional simulations with modern UI components.",
-      category: "Frontend",
-      tags: ["React", "ChartJS", "Vite", "Vanilla CSS"],
-      imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
-      githubUrl: "https://github.com",
-      liveUrl: "https://google.com",
-      featured: true,
-      createdAt: new Date().toISOString()
-    },
-    {
-      _id: "p3",
-      title: "TaskFlow Manager API",
-      description: "A scalable, documented RESTful API backend handling project workflows, team collaboration, token-based authentication, and structured error handling.",
-      category: "Backend",
-      tags: ["Node.js", "Express", "PostgreSQL", "JWT", "Swagger"],
-      imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80",
-      githubUrl: "https://github.com",
-      liveUrl: "",
-      featured: false,
-      createdAt: new Date().toISOString()
-    }
-  ],
-  skills: [
-    { _id: "s1", name: "Java", category: "Frontend", percentage: 90 },
-    { _id: "s2", name: "React.js", category: "Frontend", percentage: 85 },
-    { _id: "s3", name: "HTML , CSS , JS", category: "Frontend", percentage: 95 },
-    { _id: "s4", name: "java , python ", category: "Backend", percentage: 80 },
-    { _id: "s5", name: "Oracle databasse & MySql", category: "Database", percentage: 75 },
-    { _id: "s6", name: "RESTful APIs & Integration", category: "Backend", percentage: 85 },
-  
-  ],
+  projects: [],
+  skills: [],
   messages: []
 };
 
@@ -83,8 +37,8 @@ export const connectDB = async () => {
   const mongoURI = process.env.MONGODB_URI;
 
   if (!mongoURI) {
-    console.warn('\n⚠️  No MONGODB_URI found in environment variables.');
-    console.warn('⚡ Starting server in FALLBACK MODE (using local JSON database: backend/data/db_fallback.json)\n');
+    console.warn('\nNo MONGODB_URI found in environment variables.');
+    console.warn('Starting server in FALLBACK MODE (using local JSON database: backend/data/db_fallback.json)\n');
     isFallbackMode = true;
     return;
   }
@@ -94,33 +48,11 @@ export const connectDB = async () => {
     await mongoose.connect(mongoURI, {
       serverSelectionTimeoutMS: 5000 // 5 seconds timeout
     });
-    console.log('\n🟢 Connected to MongoDB Database successfully!\n');
+    console.log('\nConnected to MongoDB Database successfully!\n');
     isFallbackMode = false;
-
-    // Seed MongoDB collections if they are empty
-    try {
-      const Project = mongoose.model('Project');
-      const Skill = mongoose.model('Skill');
-
-      const projectCount = await Project.countDocuments();
-      if (projectCount === 0) {
-        const cleanProjects = defaultData.projects.map(({ _id, ...p }) => p);
-        await Project.insertMany(cleanProjects);
-        console.log('🌱 Seeded default projects into MongoDB.');
-      }
-
-      const skillCount = await Skill.countDocuments();
-      if (skillCount === 0) {
-        const cleanSkills = defaultData.skills.map(({ _id, ...s }) => s);
-        await Skill.insertMany(cleanSkills);
-        console.log('🌱 Seeded default skills into MongoDB.');
-      }
-    } catch (seedErr) {
-      console.warn('⚠️ Seeding MongoDB failed:', seedErr.message);
-    }
   } catch (error) {
-    console.error(`\n❌ MongoDB connection failed: ${error.message}`);
-    console.warn('⚡ Switching to FALLBACK MODE (using local JSON database: backend/data/db_fallback.json)\n');
+    console.error(`\nMongoDB connection failed: ${error.message}`);
+    console.warn('Switching to FALLBACK MODE (using local JSON database: backend/data/db_fallback.json)\n');
     isFallbackMode = true;
   }
 };
@@ -136,7 +68,7 @@ const readJsonDb = () => {
     const data = fs.readFileSync(JSON_DB_PATH, 'utf-8');
     return JSON.parse(data);
   } catch (err) {
-    console.error("Error reading JSON database, resetting to default...", err);
+    console.error('Error reading JSON database, resetting to empty data...', err);
     return defaultData;
   }
 };
@@ -163,7 +95,7 @@ export const dbService = {
         return mongoose.model('Project').findById(id);
       }
       const item = readJsonDb().projects.find(p => p._id === id);
-      if (!item) throw new Error("Project not found");
+      if (!item) throw new Error('Project not found');
       return item;
     },
     create: async (data) => {
